@@ -1,40 +1,34 @@
 import allure
 from pages.order_page import OrderPage
 from locators import Locators
+from pages.base_page import BasePage
+
 
 
 class TestOrderPage:
     @allure.title('Проверка верхней кнопки "Заказать"')
     def test_top_order_button(self, driver):
-        driver.find_element(*Locators.top_order_button).click() # нажать верхнюю кнопку Заказать
         order_page = OrderPage(driver)
-        order_page.name()
-        order_page.address()
-        order_page.phone()
-        driver.find_element(*Locators.next_button).click() # Далее
-        order_page.delivery_day()
-        order_page.rental_period()
-        order_page.scooter_color()
-        order_page.comment()
-        driver.find_element(*Locators.lower_order_button).click()
-        driver.find_element(*Locators.button_yes).click()
+        base_page = BasePage(driver)
+        base_page.click_top_order_button() # Заказать
+        order_page.filling_page_for_whom_scooter() # заполнение окна Для кого самокат
+        order_page.click_next_button() # Далее
+        order_page.filling_about_rent() # заполнение окна Про аренду
+        base_page.click_lower_order_button() # кнопка заказать
+        order_page.click_button_yes() # кнопка подтверждения заказа
         text = driver.find_element(*Locators.order_processed).text
         assert "Заказ оформлен" in text
 
     @allure.title('Проверка нижней кнопки "Заказать"')
     def test_lower_order_button(self, driver):
-        driver.find_element(*Locators.cookie).click()
-        driver.find_element(*Locators.lower_order_button).click()
         order_page = OrderPage(driver)
-        order_page.name()
-        order_page.address()
-        order_page.phone()
-        driver.find_element(*Locators.next_button).click()  # Далее
-        order_page.delivery_day()
-        order_page.rental_period()
-        order_page.scooter_color()
-        order_page.comment()
-        driver.find_element(*Locators.lower_order_button).click()
-        driver.find_element(*Locators.button_yes).click()
+        base_page = BasePage(driver)
+        base_page.click_cookie() # убрать куки
+        base_page.click_lower_order_button() # нажать нижнюю кнопку заказать
+        order_page.filling_page_for_whom_scooter()
+        order_page.click_next_button()  # Далее
+        order_page.filling_about_rent()
+        base_page.click_lower_order_button()  # кнопка заказать
+        order_page.click_button_yes()  # кнопка подтверждения заказа
         text = driver.find_element(*Locators.order_processed).text
         assert "Заказ оформлен" in text
