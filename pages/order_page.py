@@ -53,7 +53,6 @@ class OrderPage(BasePage):
         self.scooter_color()
         self.comment()
 
-
     @allure.step('Нажать кнопку Да, при подтверждении заказа')
     def click_button_yes(self):
         self.driver.find_element(*Locators.button_yes).click()

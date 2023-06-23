@@ -2,7 +2,6 @@ import allure
 import time
 from pages.base_page import BasePage
 
-
 class TestLink:
     @allure.title('Проверка перехода по ссылке на логотипе "Самокат"')
     def test_scooter_link(self, driver):

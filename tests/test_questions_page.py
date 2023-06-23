@@ -4,8 +4,6 @@ from pages.base_page import BasePage
 from conftest import Answers
 import pytest
 
-
-
 class TestQuestion:
     @allure.title('Проверка часто задаваемых вопросов и ответов')
     @pytest.mark.parametrize("index", range(8))

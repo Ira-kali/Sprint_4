@@ -23,5 +23,5 @@ class Locators:
     cookie = [By.XPATH, "//button[text()='да все привыкли']"] # куки
 
     most_asked_questions = [By.XPATH, "//div[contains(@class, 'Home_FAQ')]"]
-    question_locator = (By.XPATH, "//div[contains(@class, 'accordion__item')]")
-    answer_locator = (By.XPATH, "//div[contains(@class, 'accordion__panel') and not(@hidden)]")
+    question_locator = [By.XPATH, "//div[contains(@class, 'accordion__item')]"]
+    answer_locator = [By.XPATH, "//div[contains(@class, 'accordion__panel') and not(@hidden)]"]

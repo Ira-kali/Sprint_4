@@ -2,7 +2,6 @@ import allure
 from locators import Locators
 from pages.base_page import BasePage
 
-
 class QuestionsPage(BasePage):
     @allure.step('Пролистать до раздела "Вопросы о важном" на главной странице')
     def scroll_to_the_most_asked_questions_section(self):

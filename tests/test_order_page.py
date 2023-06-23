@@ -3,8 +3,6 @@ from pages.order_page import OrderPage
 from locators import Locators
 from pages.base_page import BasePage
 
-
-
 class TestOrderPage:
     @allure.title('Проверка верхней кнопки "Заказать"')
     def test_top_order_button(self, driver):
