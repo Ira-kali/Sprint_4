@@ -7,14 +7,6 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    @allure.step('Нажать на верхнюю кнопку Заказать')
-    def click_top_order_button(self):
-        self.driver.find_element(*Locators.top_order_button).click()
-
-    @allure.step('Нажать нижнюю кнопку Заказать')
-    def click_lower_order_button(self):
-        self.driver.find_element(*Locators.lower_order_button).click()
-
     @allure.step('Убрать куки')
     def click_cookie(self):
         self.driver.find_element(*Locators.cookie).click()
@@ -26,10 +18,6 @@ class BasePage:
     @allure.step('Нажать на надпись-логотип "Яндекс"')
     def yandex_link(self):
         self.driver.find_element(*Locators.logo_ya_locator).click()
-
-    def go_to_site(self):
-        url = 'https://qa-scooter.praktikum-services.ru/'
-        return self.driver.get(url)
 
     def find_element_located(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator), message=f"Элемент {locator} не найден")

@@ -9,6 +9,10 @@ class QuestionsPage(BasePage):
         self.scroll_to_element(section)
         self.wait_element_visible(Locators.question_locator)
 
+    def go_to_site(self):
+        url = 'https://qa-scooter.praktikum-services.ru/'
+        return self.driver.get(url)
+
     @allure.step('Нажать на каждый вопрос')
     def click_on_questions(self, index):
         self.wait_element_visible(Locators.question_locator)

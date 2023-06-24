@@ -3,6 +3,14 @@ from locators import Locators
 from pages.base_page import BasePage
 
 class OrderPage(BasePage):
+    @allure.step('Нажать на верхнюю кнопку Заказать')
+    def click_top_order_button(self):
+        self.driver.find_element(*Locators.top_order_button).click()
+
+    @allure.step('Нажать нижнюю кнопку Заказать')
+    def click_lower_order_button(self):
+        self.driver.find_element(*Locators.lower_order_button).click()
+
     @allure.step('Заполнить поля "Имя", "Фамилия"')
     def filling_full_name(self):
         self.driver.find_element(*Locators.name_field).send_keys('Ирина')
